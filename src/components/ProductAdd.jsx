@@ -63,12 +63,12 @@ export default function ProductForm({ products, setProducts }) {
     };
 
     return (
-        <div className='mt-5'>
-            <div className="container">
-                <h1 className='text-center text-muted'>{id === '0' ? 'Add New Product' : 'Edit Product'}</h1>
+        <div className='mt-5' style={{width: '500px', marginLeft:'450px',}}>
+            <div className="container" style={{ backgroundColor: "#f8d6e0",}}>
+                <h1 className='text-center ' style={{color:"#d47a87"}}>{id === '0' ? 'Add New Product' : 'Edit Product'}</h1>
                 <Form onSubmit={productHandler}>
                     <Form.Group className="mb-3">
-                        <Form.Label className="text-center w-100">Product Name</Form.Label>
+                        <Form.Label className=" w-100 fw-bold" style={{color:"#d47a87"}}>Product Name</Form.Label>
                         <Form.Control
                             onChange={getInputValue}
                             value={productForm.name}
@@ -79,7 +79,7 @@ export default function ProductForm({ products, setProducts }) {
                     </Form.Group>
 
                     <Form.Group className="mb-3">
-                        <Form.Label className="text-center w-100">Product Price</Form.Label>
+                        <Form.Label className=" w-100 fw-bold" style={{color:"#d47a87"}}>Product Price</Form.Label>
                         <Form.Control
                             value={productForm.price}
                             onChange={getInputValue}
@@ -90,7 +90,7 @@ export default function ProductForm({ products, setProducts }) {
                     </Form.Group>
 
                     <Form.Group className="mb-3">
-                        <Form.Label className="text-center w-100">Product Quantity</Form.Label>
+                        <Form.Label className=" w-100 fw-bold" style={{color:"#d47a87"}}>Product Quantity</Form.Label>
                         <Form.Control
                             value={productForm.quantity}
                             onChange={getInputValue}
@@ -101,22 +101,26 @@ export default function ProductForm({ products, setProducts }) {
                     </Form.Group>
 
                     <Form.Group className="mb-3">
-                        <Form.Label className="text-center w-100">Product Image</Form.Label>
+                        <Form.Label className="w-100 fw-bold" style={{color:"#d47a87"}}>Product Image</Form.Label>
                         <Form.Control
                             type="file"
                             accept="image/*"
                             onChange={handleImageChange}
                             name='image'
+                           
                         />
+                           
+                     
                     </Form.Group>
 
                     <div className="text-center">
-                        <Button variant="success" type="submit">
+                        <Button variant="secondary" type="submit" >
                             {id === '0' ? 'Add New Product' : 'Edit Product'}
                         </Button>
                     </div>
                 </Form>
-            </div>
+               
+            </div><br></br><br></br><br></br>
         </div>
     );
 }

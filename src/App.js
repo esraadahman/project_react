@@ -13,14 +13,20 @@ import {
 } from "react-router-dom";
 import { useState } from "react";
 import { productsList } from "./ProductsModel/ProductsModel";
+import Login from "./components/Login";
 
 function App() {
 	let [products, setProducts] = useState(productsList);
 	const router = createBrowserRouter(
 		createRoutesFromElements(
 			<>
-				<Route path='/' element={<SharedComponent />}>
-					<Route index element={<Home />} />
+				
+					<Route index element={<Login />} />
+					<Route path='/' element={<SharedComponent />}>
+					<Route
+						path='Home'
+						element={<Home products={products} setProducts={setProducts} />}
+					/>
 					<Route
 						path='products'
 						element={<Products products={products} setProducts={setProducts} />}
@@ -36,8 +42,8 @@ function App() {
 						element={
 							<ProductForm products={products} setProducts={setProducts} />
 						}
-					/> 
-					 <Route path='*' element={<NotFound />} /> 
+					/>
+					<Route path='*' element={<NotFound />} />
 				</Route>
 			</>
 		)
@@ -45,8 +51,9 @@ function App() {
 	return (
 		<>
 			<RouterProvider router={router}></RouterProvider>
+			
 		</>
+		
 	);
 }
-
 export default App;
